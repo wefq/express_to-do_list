@@ -1,0 +1,33 @@
+<form action="/api/tasks" method="POST">
+	<div class="mb-3">
+		<label for="task">Enter a new task</label>
+		<input name="task" type="text" class="form-control" />
+	</div>
+
+	<div class="mb-3">
+		<label for="description">Enter a description</label>
+		<input name="description" type="text" class="form-control" />
+	</div>
+
+	<input type="submit" value="Add Task" class="btn btn-success btn-block" />
+</form>
+
+<ul class="list-group list-group-flush">
+	{{#if tasks.length }}
+			{{#each tasks}}
+				<li class="list-group-item d-flex justify-content-between align-items-center" id="task-{{this.id}}">
+					<div class="">
+						<h5>{{this.task}}</h5>
+						{{#if this.description}}
+							<p>{{this.description}}</p>
+						{{/if}}
+					</div>
+
+					<div class="">
+						<button class="btn btn-primary btn-update" data-id="{{this.id}}">edit</button>
+						<button class="btn btn-danger btn-delete" data-id="{{this.id}}">delete</button>
+					</div>
+				</li>
+			{{/each}}
+	{{/if}}
+</ul>
