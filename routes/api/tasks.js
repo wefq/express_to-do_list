@@ -19,6 +19,7 @@ router.post("/", (req, res) => {
 	};
 
 	if (!newTask.task) {
+		// res.redirect("/");
 		return res.status(400).json({ msg: "Task cannot be empty" });
 	}
 

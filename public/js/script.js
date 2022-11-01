@@ -1,3 +1,13 @@
+const sub = document.querySelector('#form');
+const taskInput = document.querySelector('#task-text');
+
+sub.addEventListener('click', (e) => {
+	// if (!taskInput.value) {
+	// 	e.preventDefault();
+	// 	return;
+	// }
+})
+
 const handleDelete = async (id) => {
 	const res = await fetch(`/api/tasks/${id}`, {
 		"Content-Type": "application/json",
@@ -24,7 +34,7 @@ const handleUpdate = async (id) => {
 		        </div>
 
 				<div class="">
-						<button class="btn btn-primary btn-save" data-id="{{this.id}}">save</button>
+						<button class="btn btn-success btn-save" data-id="{{this.id}}">save changes</button>
 				</div>
 				`
 		}).then(() => {

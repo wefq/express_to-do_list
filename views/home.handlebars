@@ -1,33 +1,57 @@
-<form action="/api/tasks" method="POST">
+<form action="/api/tasks" method="POST" id="form">
 	<div class="mb-3">
 		<label for="task">Enter a new task</label>
-		<input name="task" type="text" class="form-control" />
+		<input name="task" type="text" class="form-control" id="task-text" required />
 	</div>
 
 	<div class="mb-3">
 		<label for="description">Enter a description</label>
-		<input name="description" type="text" class="form-control" />
+		<input name="description" type="text" class="form-control" id="submit" />
 	</div>
 
 	<input type="submit" value="Add Task" class="btn btn-success btn-block" />
 </form>
 
 <ul class="list-group list-group-flush">
-	{{#if tasks.length }}
-			{{#each tasks}}
-				<li class="list-group-item d-flex justify-content-between align-items-center" id="task-{{this.id}}">
-					<div class="">
-						<h5>{{this.task}}</h5>
-						{{#if this.description}}
-							<p>{{this.description}}</p>
-						{{/if}}
-					</div>
+	{{#if tasks.length}}
+		{{#each tasks}}
+			<li class="list-group-item d-flex justify-content-between align-items-center" id="task-{{this.id}}">
+				<div class="">
+					<h5>{{this.task}}</h5>
+					{{#if this.description}}
+						<p>{{this.description}}</p>
+					{{/if}}
+				</div>
 
-					<div class="">
-						<button class="btn btn-primary btn-update" data-id="{{this.id}}">edit</button>
-						<button class="btn btn-danger btn-delete" data-id="{{this.id}}">delete</button>
-					</div>
-				</li>
-			{{/each}}
+				<div class="">
+					<button class="btn btn-primary btn-update" data-id="{{this.id}}">edit</button>
+					<button class="btn btn-danger btn-delete" data-id="{{this.id}}">delete</button>
+				</div>
+			</li>
+		{{/each}}
 	{{/if}}
 </ul>
+
+<div class="modal" tabindex="-1">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Modal title</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div>
+					<input type="text" class="form-control" name="task" />
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary">Save changes</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+</script>
